@@ -6,12 +6,80 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <header>
+      <div id="controls">
+        <button>
+          <i class="fas fa-bars"></i>
+        </button>
+        <form>
+          <textarea placeholder="Search" rows=1 wrap="off">
+          </textarea>
+        </form>
+      </div>
+
+      <div class="collapsible" id="featured-maps">
+        <button class="collapse">
+          <span>Featured</span>
+          <span><i class="fas fa-chevron-circle-down"></i></span>
+        </button>
+        <div>
+          <span>Lorem Featured</span>
+          <span>
+            <button>Edit</button>
+            <button>Delete</button>
+          </span>
+        </div>
+        <div>
+          <span>Ipsum Featured</span>
+          <span>
+            <button>Edit</button>
+            <button>Delete</button>
+          </span>
+        </div>
+      </div>
+
+      <div class="collapsible" id="user-maps">
+        <button class="collapse">
+          <span>My Lists</span>
+          <span><i class="fas fa-chevron-circle-down"></i></span>
+        </button>
+        <div>
+          <span>Lorem User</span>
+          <span>
+            <button>Edit</button>
+            <button>Delete</button>
+          </span>
+        </div>
+        <div>
+          <span>Ipsum User</span>
+          <span>
+            <button>Edit</button>
+            <button>Delete</button>
+          </span>
+        </div>
+      </div>
+
+      <div class="collapsible" id="marker-info">
+        <button class="collapse">
+          <span>My Lists</span>
+          <span><i class="fas fa-chevron-circle-down"></i></span>
+        </button>
+        <div>
+          Marker info here
+        </div>
+      </div>
+
+    </header>
+    <!-- <h1>Hello World!</h1> -->
+    <div id="map">Insert Map here</div>
   </body>
 </html>

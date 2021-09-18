@@ -1,9 +1,70 @@
 // See: https://sass-lang.com/
 
 body {
+  height: 100vh;
+  display: flex;
   background-color: #EEE;
 
-  h1 {
-    color: #244751;
+  header {
+    width: 30%;
+    height: 100%;
+    margin: 0.25em;
+
+    > * {
+      margin: 1em 0;
+    }
+
+    #controls {
+      display: flex;
+      * {
+        margin: 0 0.25em;
+      }
+      button {
+        min-width: auto;
+      }
+      form {
+        width: 80%;
+          textarea {
+            overflow-x: hidden;
+            resize: none;
+          }
+      }
+    }
+
+    .collapsible {
+      width: 90%;
+      height: 30%;
+      border: solid;
+      padding: 0.2em;
+      .collapse {
+        width: 100%;
+        display: flex;
+        justify-self: center;
+        justify-content: space-between;
+        background-color: #EEE;
+      }
+      div {
+        display: flex;
+        justify-content: space-between;
+      }
+      #marker-info {
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
   }
+
+  #map {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: repeating-linear-gradient(-45deg, transparent 0 5px, #DDD 5px 10px);
+  }
+  // h1 {
+  //   color: #244751;
+  // }
 }
