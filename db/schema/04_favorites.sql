@@ -1,6 +1,6 @@
 -- favorites
 
-CREATE TABLE "favourites" (
+CREATE TABLE "favorites" (
   "id" SERIAL NOT NULL,
   "user_id" INT REFERENCES users(id) ON DELETE CASCADE,
   "map_id" INT REFERENCES maps(id) ON DELETE CASCADE,
