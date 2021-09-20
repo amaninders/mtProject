@@ -8,36 +8,64 @@
       async
     ></script>
 <script>
-  let map;
-
   function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 2,
-      center: new google.maps.LatLng(2.8, -187.3),
-      mapTypeId: "terrain",
+  const myLatlng = { lat: -25.363, lng: 131.044 };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 4,
+    center: myLatlng,
+  });
+
+  const contentString = `
+  <form>
+    <div class="form-group row">
+    <label for="longitude" class="col-sm-2 col-form-label">Longitude</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="latitude">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="latitude" class="col-sm-2 col-form-label">Latitude</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword" placeholder="longitude">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Marker Type</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>Park</option>
+      <option>Hotel</option>
+      <option>Museum</option>
+      <option>Gallery</option>
+      <option>Shop</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Notes</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>`;
+
+
+  // Create the initial InfoWindow.
+  let infoWindow = new google.maps.InfoWindow({
+    content: "Click the map to add a marker!&nbsp;&nbsp;",
+    position: myLatlng,
+  });
+
+  infoWindow.open(map);
+  // Configure the click listener.
+  map.addListener("click", (mapsMouseEvent) => {
+    // Close the current InfoWindow.
+    infoWindow.close();
+    // Create a new InfoWindow.
+    infoWindow = new google.maps.InfoWindow({
+      position: mapsMouseEvent.latLng,
     });
-
-    // Create a <script> tag and set the USGS URL as the source.
-    const script = document.createElement("script");
-
-    // This example uses a local copy of the GeoJSON stored at
-    // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
-    script.src =
-      "https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  }
-
-  // Loop through the results array and place a marker for each
-  // set of coordinates.
-  const eqfeed_callback = function (results) {
-    for (let i = 0; i < results.features.length; i++) {
-      const coords = results.features[i].geometry.coordinates;
-      const latLng = new google.maps.LatLng(coords[1], coords[0]);
-
-      new google.maps.Marker({
-        position: latLng,
-        map: map,
-      });
-    }
-  };
+    infoWindow.setContent(
+      contentString + JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+    );
+    infoWindow.open(map);
+  });
+}
 </script>
