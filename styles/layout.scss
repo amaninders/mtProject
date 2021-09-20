@@ -1,9 +1,26 @@
 // See: https://sass-lang.com/
 
 body {
+
+  margin: 2%;
   background-color: #EEE;
+  display: flex;
+  justify-content: space-around;
+  min-height: 90vh;
+  min-width: 90vw;
+
+  header {
+    flex: 2;
+    background-color: rgb(200, 204, 204);
+    display: flex;
+    flex-direction: column;
+  }
 
   h1 {
     color: #244751;
+  }
+
+  #map {
+    height: 100%;
   }
 }
