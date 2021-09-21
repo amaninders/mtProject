@@ -1,9 +1,43 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
 
-  h1 {
-    color: #244751;
+  margin: 2%;
+  background-color: #EEE;
+  display: flex;
+  justify-content: space-around;
+  min-height: 90vh;
+  min-width: 90vw;
+
+
+  #header--container {
+    flex:2;
+    margin-right: 2em;
   }
+
+  #map {
+    height: 100%;
+  }
+
+  button {
+    font-family: 'Bebas Neue', cursive;
+  }
+
+  #existingMaps {
+    max-height: 300px;
+    overflow: scroll;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
+
+  #companyInfo {
+    margin-bottom: 0;
+  }
+
+  #newMap {
+    h5 {
+      text-align: center;
+      font-family: 'Bebas Neue', cursive;
+    }
+  }
+
 }
