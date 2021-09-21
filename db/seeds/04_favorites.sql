@@ -1,5 +1,5 @@
 -- favorites
-
+/*
 insert into markers (user_id, map_id) values (5, 2);
 insert into markers (user_id, map_id) values (5, 1);
 insert into markers (user_id, map_id) values (7, 10);
@@ -30,3 +30,4 @@ insert into markers (user_id, map_id) values (5, 10);
 insert into markers (user_id, map_id) values (9, 9);
 insert into markers (user_id, map_id) values (8, 4);
 insert into markers (user_id, map_id) values (5, 7);
+*/

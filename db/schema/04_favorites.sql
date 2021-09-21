@@ -1,5 +1,5 @@
 -- favorites
-
+/*
 CREATE TABLE "favorites" (
   "id" SERIAL NOT NULL,
   "user_id" INT REFERENCES users(id) ON DELETE CASCADE,
@@ -12,3 +12,4 @@ CREATE TABLE "favorites" (
     FOREIGN KEY ("map_id")
       REFERENCES "maps"("id")
 );
+*/
