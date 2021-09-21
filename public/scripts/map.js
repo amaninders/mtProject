@@ -1,6 +1,8 @@
+// function to create the mapForm with long lat information
 const mapForm = (obj) => {
 
-	const contentString = `
+  // we use the following string literal to render the HTML form within the map info window
+	const createMapForm = `
 		<form id="addMap">
 		 	<fieldset>
 			  <div class="form-group">
@@ -19,14 +21,13 @@ const mapForm = (obj) => {
 			</fieldset>
 		</form>`;
 
-	return contentString;
+	return createMapForm;
 }
 
-
+// initialize map variables
 let map, service, infoWindow;
 
 function initMap() {
-
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 25.114075, lng: 55.158329 }, //default location palm jumeirah
     zoom: 14,
@@ -82,7 +83,7 @@ function initMap() {
         }
       });
     } else {
-      alert("please enter a valid location"); //replace with a proper error
+      alert("please enter a valid location"); //replace with a proper error if there's time
     }
   });
 }
