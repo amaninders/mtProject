@@ -16,12 +16,12 @@ module.exports = (db) => {
         });
     })
     .post("/:map_id/markers", (req, res) => {
-      const {longitude, latitude, type,notes} = req.body;
+      const {longitude, latitude, type, notes} = req.body;
       db.query(`
       INSERT INTO maps (user_id, map_id, longitude, latitude, type, notes)
       VALUES ($1, $2, $3, $4, $5, $6, false, $7)
       RETURNING *
-      `, [res.session.user.user_id, req.params.map_id, longitude, latitude, `${type}`, `${notes}`])
+      `, [`${res.session.user.user_id}`, `${req.params.map_id}`, `${longitude}`, `${latitude}`, `${type}`, `${notes}`])
         .then(data => {
           const markers = data.rows;
           res.json({ markers });
@@ -33,7 +33,7 @@ module.exports = (db) => {
         });
     })
     .get("/:map_id/markers/:marker_id", (req, res) => {
-      db.query(`SELECT * FROM markers WHERE id = $1;`, [req.params.marker_id])
+      db.query(`SELECT * FROM markers WHERE id = $1 AND map_id = $2;`, [`${req.params.marker_id}`, `${req.params.map_id}`])
         .then(data => {
           const markers = data.rows;
           res.json({ markers });
@@ -46,13 +46,13 @@ module.exports = (db) => {
     })
     // method-override library
     .put("/:map_id/markers/:marker_id", (req, res) => {
-      const {longitude, latitude, zoom, locationKey} = req.body;
+      const {longitude, latitude, type, notes} = req.body;
       db.query(`
       UPDATE markers
       SET longitude = $1, latitude = $2, type = $3, notes = $4
-      WHERE id = $5
+      WHERE id = $5 AND map_id = $6
       RETURNING *
-      `, [longitude, latitude, zoom, `${locationKey}`, `${type}`, `${notes}`, req.params.marker_id])
+      `, [`${longitude}`, `${latitude}`, `${type}`, `${notes}`, `${req.params.marker_id}`, `${req.params.map_id}`])
         .then(data => data.rows[0])
         .catch(err => {
           res
@@ -64,9 +64,9 @@ module.exports = (db) => {
       db.query(`
       UPDATE markers
       SET is_deleted = true
-      WHERE id = $1
+      WHERE id = $1 AND map_id = $2
       RETURNING *
-      `, [req.params.marker_id])
+      `, [`${req.params.marker_id}`, `${req.params.map_id}`])
         .then(data => data.rows[0])
         .catch(err => {
           res

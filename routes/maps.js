@@ -23,7 +23,7 @@ module.exports = (db) => {
       INSERT INTO maps (user_id, name, longitude, latitude, zoom_level, location_key, is_public)
       VALUES ($1, $2, $3, $4, $5, $6, $7)
       RETURNING *
-      `, [res.session.user.user_id, `${name}`, longitude, latitude, zoom, `${locationKey}`, isPublic])
+      `, [`${res.session.user.user_id}`, `${name}`, `${longitude}`, `${latitude}`, `${zoom}`, `${locationKey}`, `${isPublic}`])
         .then(data => data.rows[0])
         .catch(err => {
           res
@@ -32,7 +32,7 @@ module.exports = (db) => {
         });
     })
     .get("/:map_id", (req, res) => {
-      db.query(`SELECT * FROM maps WHERE id = $1;`, [req.params.map_id])
+      db.query(`SELECT * FROM maps WHERE id = $1;`, [`${req.params.map_id}`])
         .then(data => {
           const maps = data.rows;
           res.json({ maps });
@@ -51,7 +51,7 @@ module.exports = (db) => {
       SET name = $1, longitude = $2, latitude = $3, zoom_level = $4, location_key = $5, is_public = $6
       WHERE id = $7
       RETURNING *
-      `, [`${name}`, longitude, latitude, zoom, `${locationKey}`, isPublic, req.params.map_id])
+      `, [`${name}`, `${longitude}`, `${latitude}`, `${zoom}`, `${locationKey}`, `${isPublic}`, `${req.params.map_id}`])
         .then(data => data.rows[0])
         .catch(err => {
           res
@@ -65,7 +65,7 @@ module.exports = (db) => {
       SET is_deleted = true
       WHERE id = $1
       RETURNING *
-      `, [req.params.map_id])
+      `, [`${req.params.map_id}`])
         .then(data => data.rows[0])
         .catch(err => {
           res
