@@ -1,0 +1,110 @@
+<div class="d-flex flex-column bd-highlight mb-3" id="header--container">
+
+  <!-- branding -->
+	<div class="p-2 bd-highlight d-flex-column justify-content-center border">
+    <a class="d-flex-column justify-content-center text-center" href="#">
+      <img src="/images/logo.svg" height="50" alt="wikiMap">
+    </a>
+    <hr>
+    <!-- <div class="card">
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+        </form>
+      </div>
+    </div> -->
+    <!-- <p class="text-center">if logged in (add condition) </p> -->
+    <div class="card text-center">
+      <div class="card-body">
+        👋 Welcome user
+      </div>
+    </div>
+	</div>
+
+  <!-- create map -->
+  <div class="p-2 bd-highlight border d-flex-column justify-content-center">
+    <p>
+      <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#newMap" aria-expanded="false" aria-controls="collapseExample">
+        create a map
+      </button>
+    </p>
+    <div class="collapse" id="newMap">
+      <div class="card card-body">
+        <button class="btn btn-outline-success my-2 my-sm-2 custom-map-control-button" type="button" id="panButton">Pan to current location</button>
+        <h5>OR</h5>
+        <form class="form d-flex-column" id="searchLocation">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search location" aria-label="location" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- create map -->
+  <div class="p-2 bd-highlight border d-flex-column justify-content-center">
+    <p>
+      <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#existingMaps" aria-expanded="false" aria-controls="collapseExample">
+        existing maps
+      </button>
+    </p>
+    <div class="collapse" id="existingMaps">
+      <div class="card card-body">
+        <div class="list-group">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-light"><a href="#" class="list-group-item list-group-item-action">map name</a></button>
+            <button type="button" class="btn btn-light"><i class="fas fa-minus-circle"></i></button>
+            <button type="button" class="btn btn-light"><i class="far fa-edit"></i></button>
+            <button type="button" class="btn btn-light"><i class="far fa-thumbs-up"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- create map -->
+  <div class="p-2 bd-highlight border d-flex-column justify-content-center">
+    <p>
+      <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#featured" aria-expanded="false" aria-controls="collapseExample">
+        featured maps
+      </button>
+    </p>
+    <div class="collapse" id="featured">
+      <div class="card card-body">
+        <div class="list-group">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-light"><a href="#" class="list-group-item list-group-item-action">map name</a></button>
+            <button type="button" class="btn btn-light"><i class="far fa-edit"></i></button>
+            <button type="button" class="btn btn-light"><i class="far fa-thumbs-up"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+	<!-- footer with icons -->
+	<div class="mt-auto p-2 bd-highlight">
+		<div class="btn-group d-flex justify-content-around">
+			<a class="btn btn-outline-dark" href="#" role="button"><i class="fas fa-info"></i></a>
+			<a class="btn btn-outline-dark" href="#" role="button"><i class="fas fa-code"></i></i></a>
+			<a class="btn btn-outline-dark" href="#" role="button"><i class="fas fa-question"></i></a>
+		</div>
+    <div class="d-flex-column text-center">
+      <br>
+      <p id="companyInfo">© wikiMap inc.<br>2021</p>
+    </div>
+	</div>
+
+</div>

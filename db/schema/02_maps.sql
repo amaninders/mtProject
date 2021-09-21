@@ -5,10 +5,12 @@ CREATE TABLE "maps" (
   "name" VARCHAR(255),
   "longitude" REAL,
   "latitude" REAL,
-  "zoom_level" INT,
-  "location_key" TEXT,
-  "is_deleted" BOOLEAN DEFAULT false,
-  "is_public" BOOLEAN,
+  "zoom_level" INT DEFAULT '8',
+  "location_key" TEXT DEFAULT NULL,
+  "is_deleted" BOOLEAN DEFAULT FALSE,
+  "is_public" BOOLEAN DEFAULT FALSE,
   PRIMARY KEY ("id"),
-  FOREIGN KEY ("user_id") REFERENCES "users"("id")
+  CONSTRAINT "FK_maps.user_id"
+    FOREIGN KEY ("user_id")
+      REFERENCES "users"("id")
 );
