@@ -6,7 +6,7 @@ const markersRoutes = require("./markers");
 module.exports = (db) => {
   router
     .get("/", (req, res) => {
-      db.query(`SELECT * FROM maps WHERE user_id = $1;`, [`${req.session.user_id}`])
+      db.query(`SELECT * FROM maps WHERE user_id = $1;`, [`${req.session.user.user_id}`])
         .then(data => {
           const maps = data.rows;
           res.json({ maps });
