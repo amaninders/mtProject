@@ -7,6 +7,7 @@ CREATE TABLE "markers" (
   "latitude" REAL,
   "type" VARCHAR(50),
   "notes" TEXT,
+  "is_deleted" BOOLEAN DEFAULT false,
   PRIMARY KEY ("id"),
   CONSTRAINT "FK_markers.map_id"
     FOREIGN KEY ("map_id")
