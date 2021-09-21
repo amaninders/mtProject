@@ -21,7 +21,7 @@ module.exports = (db) => {
       INSERT INTO maps (user_id, map_id, longitude, latitude, type, notes)
       VALUES ($1, $2, $3, $4, $5, $6, false, $7)
       RETURNING *
-      `, [`${res.session.user.user_id}`, `${req.params.map_id}`, `${longitude}`, `${latitude}`, `${type}`, `${notes}`])
+      `, [`${req.session.user.user_id}`, `${req.params.map_id}`, `${longitude}`, `${latitude}`, `${type}`, `${notes}`])
         .then(data => {
           const markers = data.rows;
           res.json({ markers });

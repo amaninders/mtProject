@@ -23,7 +23,7 @@ module.exports = (db) => {
       INSERT INTO maps (user_id, name, longitude, latitude, zoom_level, location_key, is_public)
       VALUES ($1, $2, $3, $4, $5, $6, $7)
       RETURNING *
-      `, [`${res.session.user.user_id}`, `${name}`, `${longitude}`, `${latitude}`, `${zoom}`, `${locationKey}`, `${isPublic}`])
+      `, [`${req.session.user.user_id}`, `${name}`, `${longitude}`, `${latitude}`, `${zoom}`, `${locationKey}`, `${isPublic}`])
         .then(data => data.rows[0])
         .catch(err => {
           res
