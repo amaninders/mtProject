@@ -10,6 +10,11 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 
+const cookieSession = require('cookie-session');
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
