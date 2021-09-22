@@ -46,7 +46,7 @@
   <div class="p-2 bd-highlight d-flex-column justify-content-center">
     <p>
       <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#existingMaps" aria-expanded="false" aria-controls="collapseExample">
-        existing maps
+        Your maps
       </button>
     </p>
     <div class="collapse show" id="existingMaps">
@@ -60,11 +60,11 @@
     </div>
   </div>
 
-  <!-- featured map -->
+  <!-- favorite map -->
   <div class="p-2 bd-highlight d-flex-column justify-content-center">
     <p>
       <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#favoriteMaps" aria-expanded="false" aria-controls="collapseExample">
-        featured maps
+        favorite maps
       </button>
     </p>
     <div class="collapse show" id="favoriteMaps">
@@ -85,7 +85,7 @@
 
       <div class="card">
         <div class="card-body">
-          <form method="POST" action="/login" enctype="application/x-www-form-urlencoded">
+          <form id="loginForm" method="POST" action="/login" enctype="application/x-www-form-urlencoded">
             <input type="hidden" name="_method" value="DELETE">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
