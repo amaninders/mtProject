@@ -6,8 +6,8 @@ module.exports = (db) => {
     .get("/", (req, res) => {
       db.query(`SELECT * FROM favourites WHERE user_id = $1`, [`${req.session.user.user_id}`])
         .then(data => {
-          const users = data.rows;
-          res.json({ users });
+          const favs = data.rows;
+          res.json({ favs });
         })
         .catch(err => {
           res
@@ -24,6 +24,22 @@ module.exports = (db) => {
         .then(data => {
           const fav = data.rows[0];
           res.json({ fav });
+        })
+        .catch(err => {
+          res
+            .status(500)
+            .json({ error: err.message });
+        });
+    })
+    .get("/:fav_id/markers", (req, res) => {
+      db.query(`
+      SELECT *
+      FROM markers
+      WHERE map_id = $1
+      `, [`${req.params.fav_id}`])
+        .then(data => {
+          const users = data.rows;
+          res.json({ users });
         })
         .catch(err => {
           res
@@ -48,8 +64,6 @@ module.exports = (db) => {
             .json({ error: err.message });
         });
     });
-  router
-
 
   return router;
 };
