@@ -30,9 +30,9 @@ const loadMapList = (listType) => {
 
   listType === 'existing'
     ? (element = $('#existingMaps > div > div'),
-       URL = '/api/maps' )
+       URL = '/api/maps')
     : (element = $('#favoriteMaps > div > div'),
-       URL = '/api/favs' );
+       URL = '/api/favs');
 
   $.ajax(URL, { method: 'GET' })
     .then(function(data) {
@@ -49,6 +49,12 @@ const loadMapList = (listType) => {
 $(function() {
   loadMapList('existing');
   loadMapList('favorites');
+
+  $('#loginForm').submit( e => {
+    e.preventDefault();
+    alert('login');
+  })
+
 });
 
 
