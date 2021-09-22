@@ -5,7 +5,7 @@ CREATE TABLE "markers" (
   "map_id" INT REFERENCES maps(id) ON DELETE CASCADE,
   "longitude" REAL,
   "latitude" REAL,
-  "image" TEXT,
+  "image" TEXT DEFAULT "/images/cover.png",
   "type" VARCHAR(50),
   "notes" TEXT,
   "is_deleted" BOOLEAN DEFAULT false,

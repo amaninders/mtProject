@@ -19,7 +19,7 @@ module.exports = (db) => {
       const {longitude, latitude, type, notes} = req.body;
       db.query(`
       INSERT INTO maps (user_id, map_id, longitude, latitude, type, notes)
-      VALUES ($1, $2, $3, $4, $5, $6, false, $7)
+      VALUES ($1, $2, $3, $4, $5, $6)
       RETURNING *
       `, [`${req.session.user.user_id}`, `${req.params.map_id}`, `${longitude}`, `${latitude}`, `${type}`, `${notes}`])
         .then(data => {

@@ -8,29 +8,16 @@
       </a>
     </span>
     <hr>
-    <div class="card">
-      <div class="card-body">
-        <form action="/login" method="POST">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
-        </form>
-      </div>
-    </div>
-    <!-- <p class="text-center">if logged in (add condition) </p> -->
+
+    <% if (username) { %>
+    <hr>
     <div class="card text-center">
       <div class="card-body">
-        👋 Welcome user
+        👋 Welcome <%= email %>
       </div>
     </div>
     <hr>
-	</div>
+  </div>
 
   <!-- create map -->
   <div class="p-2 bd-highlight d-flex-column justify-content-center">
@@ -55,7 +42,7 @@
     </div>
   </div>
 
-  <!-- create map -->
+  <!-- existing maps -->
   <div class="p-2 bd-highlight d-flex-column justify-content-center">
     <p>
       <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#existingMaps" aria-expanded="false" aria-controls="collapseExample">
@@ -66,26 +53,21 @@
       <div class="card card-body">
         <div class="list-group">
           <div class="btn-group" role="group" aria-label="existing-maps">
-            <button type="button" class="btn btn-light"><a href="#" class="list-group-item list-group-item-action">map name</a></button>
-            <button type="button" class="btn btn-light"><i class="fas fa-minus-circle"></i></button>
-            <button type="button" class="btn btn-light"><i class="far fa-edit"></i></button>
-            <button type="button" class="btn btn-light"><i class="far fa-thumbs-up"></i></button>
-            <input type="hidden" id="mapLong" name="mapLng" value="${obj.longitude}">
-            <input type="hidden" id="mapLong" name="mapLat" value="${obj.latitude}">
+            <!-- gets a list of existing maps from app.js -->
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- create map -->
+  <!-- featured map -->
   <div class="p-2 bd-highlight d-flex-column justify-content-center">
     <p>
-      <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#featured" aria-expanded="false" aria-controls="collapseExample">
+      <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#favoriteMaps" aria-expanded="false" aria-controls="collapseExample">
         featured maps
       </button>
     </p>
-    <div class="collapse show" id="featured">
+    <div class="collapse show" id="favoriteMaps">
       <div class="card card-body">
         <div class="list-group">
           <div class="btn-group" role="group" aria-label="Basic example">
@@ -98,6 +80,29 @@
     </div>
   </div>
 
+
+    <% }else{ %>
+
+      <div class="card">
+        <div class="card-body">
+          <form method="POST" action="/login" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="_method" value="DELETE">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-success btn-lg btn-block">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <% } %>
 
 	<!-- footer with icons -->
 	<div class="mt-auto p-2 bd-highlight">
