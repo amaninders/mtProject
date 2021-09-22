@@ -54,15 +54,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// Login
-// app.get('/login/:id',(req,res) => {
-//   req.session.user_id = req.params.id;
-//   res.cookie('user_id', req.params.id);
-//   res.redirect('/');
-// })
-
-const mapRouter = require('./routes/mapRouter');
-
 
 // Delete route for maps
 app.get('/delete', (req,res) => {
