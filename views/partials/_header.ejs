@@ -8,9 +8,9 @@
       </a>
     </span>
     <hr>
-    <div class="card">
+    <!-- <div class="card">
       <div class="card-body">
-        <form action="/login" method="POST">
+        <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -22,7 +22,7 @@
           <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
         </form>
       </div>
-    </div>
+    </div> -->
     <!-- <p class="text-center">if logged in (add condition) </p> -->
     <div class="card text-center">
       <div class="card-body">
@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <!-- create map -->
+  <!-- existing maps -->
   <div class="p-2 bd-highlight d-flex-column justify-content-center">
     <p>
       <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#existingMaps" aria-expanded="false" aria-controls="collapseExample">
@@ -66,26 +66,21 @@
       <div class="card card-body">
         <div class="list-group">
           <div class="btn-group" role="group" aria-label="existing-maps">
-            <button type="button" class="btn btn-light"><a href="#" class="list-group-item list-group-item-action">map name</a></button>
-            <button type="button" class="btn btn-light"><i class="fas fa-minus-circle"></i></button>
-            <button type="button" class="btn btn-light"><i class="far fa-edit"></i></button>
-            <button type="button" class="btn btn-light"><i class="far fa-thumbs-up"></i></button>
-            <input type="hidden" id="mapLong" name="mapLng" value="${obj.longitude}">
-            <input type="hidden" id="mapLong" name="mapLat" value="${obj.latitude}">
+            <!-- gets a list of existing maps from app.js -->
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- create map -->
+  <!-- featured map -->
   <div class="p-2 bd-highlight d-flex-column justify-content-center">
     <p>
-      <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#featured" aria-expanded="false" aria-controls="collapseExample">
+      <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#favoriteMaps" aria-expanded="false" aria-controls="collapseExample">
         featured maps
       </button>
     </p>
-    <div class="collapse show" id="featured">
+    <div class="collapse show" id="favoriteMaps">
       <div class="card card-body">
         <div class="list-group">
           <div class="btn-group" role="group" aria-label="Basic example">

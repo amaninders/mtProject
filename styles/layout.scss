@@ -29,6 +29,12 @@ body {
     overflow-x: hidden; /* Hide horizontal scrollbar */
   }
 
+  #favoriteMaps {
+    max-height: 300px;
+    overflow: scroll;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+  }
+
   #companyInfo {
     margin-bottom: 0;
   }
@@ -38,6 +44,10 @@ body {
       text-align: center;
       font-family: 'Bebas Neue', cursive;
     }
+  }
+
+  #map__name {
+    min-width: 60%;
   }
 
 }
