@@ -10,6 +10,11 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 
+const cookieSession = require('cookie-session');
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
@@ -39,6 +44,7 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const mapsRoutes = require("./routes/maps");
 const favsRoutes = require("./routes/favs");
+const loginRoute = require("./routes/login");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -46,6 +52,7 @@ app.use("/api/users", usersRoutes(db));
 // Note: mount other resources here, using the same pattern above
 app.use("/api/maps", mapsRoutes(db));
 app.use("/api/favs", favsRoutes(db));
+app.use("/login", loginRoute(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
