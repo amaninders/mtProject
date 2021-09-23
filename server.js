@@ -44,6 +44,7 @@ app.use(express.static("public"));
 const mapsRoutes          = require("./routes/maps");
 const favsRoutes          = require("./routes/favs");
 const contributionsRoutes = require("./routes/contributions");
+const publicMapRoutes      = require("./routes/publicMap");
 const loginRoute          = require("./routes/login");
 
 // Mount all resource routes
@@ -52,6 +53,7 @@ const loginRoute          = require("./routes/login");
 app.use("/api/maps", mapsRoutes(db));
 app.use("/api/favs", favsRoutes(db));
 app.use("/api/contributions", contributionsRoutes(db));
+app.use("/m", publicMapRoutes(db));
 app.use("/login", loginRoute(db));
 
 // Home page

@@ -35,8 +35,8 @@ module.exports = (db) => {
     .get("/:map_id", (req, res) => {
       db.query(`SELECT * FROM maps WHERE id = $1;`, [`${req.params.map_id}`])
         .then(data => {
-          const maps = data.rows;
-          res.json({ maps });
+          const map = data.rows[0];
+          res.json({ map });
         })
         .catch(err => {
           res
