@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS maps CASCADE;
 CREATE TABLE "maps" (
   "id" SERIAL NOT NULL,
   "user_id" INT REFERENCES users(id) ON DELETE CASCADE,
-  "name" VARCHAR(255),
+  "name" VARCHAR(255) NOT NULL,
   "longitude" REAL,
   "latitude" REAL,
   "zoom_level" INT DEFAULT '8',

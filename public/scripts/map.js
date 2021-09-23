@@ -7,15 +7,15 @@ const mapForm = (obj) => {
 		 	<fieldset>
 			  <div class="form-group">
 			     <label for="latitude">Latitude</label>
-			     <input type="text" id="latitude" class="form-control" placeholder="${obj.lat}" disabled>
+			     <input type="text" id="latitude" name="latitude" class="form-control" value="${obj.lat}">
 			  </div>
 			  <div class="form-group">
 			     <label for="longitude">Longitude</label>
-			     <input type="text" id="longitude" class="form-control" placeholder="${obj.lng}" disabled>
+			     <input type="text" id="longitude" name="longitude" class="form-control" value="${obj.lng}">
 			  </div>
         <div class="form-group">
           <label for="mapName">Name</label>
-          <input type="text" class="form-control" id="mapName">
+          <input type="text" name="name" class="form-control" id="mapName">
         </div>
 		  	<button type="submit" class="btn btn-dark">Create map</button>
 			</fieldset>
@@ -73,9 +73,9 @@ function initMap() {
 
       service.findPlaceFromQuery(request, (results, status) => {
         if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-          const searchResult = results[0].geometry.location;
-          const pos = searchResult.toJSON();
-          map.setCenter(searchResult);
+          const searchResult = results[0].geometry.location; // we handpick the first item from results
+          const pos = searchResult.toJSON(); //fetch the coordinates
+          map.setCenter(searchResult); //set the map center
           infoWindow.setContent(mapForm(pos));
           infoWindow.setPosition(pos);
           infoWindow.open(map);

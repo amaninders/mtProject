@@ -4,10 +4,10 @@ const router  = express.Router();
 module.exports = (db) => {
   router
     .get("/", (req, res) => {
-      db.query(`SELECT * FROM favourites WHERE user_id = $1`, [`${req.session.user.user_id}`])
+      db.query(`SELECT * FROM favourites LEFT JOIN maps ON favourites.map_id = maps.id WHERE favourites.user_id = $1`, [`${req.session.user.user_id}`])
         .then(data => {
-          const favs = data.rows;
-          res.json({ favs });
+          const maps = data.rows;
+          res.json({ maps });
         })
         .catch(err => {
           res

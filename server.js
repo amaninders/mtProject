@@ -41,7 +41,6 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
 const mapsRoutes          = require("./routes/maps");
 const favsRoutes          = require("./routes/favs");
 const contributionsRoutes = require("./routes/contributions");
@@ -49,7 +48,6 @@ const loginRoute          = require("./routes/login");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
 // Note: mount other resources here, using the same pattern above
 app.use("/api/maps", mapsRoutes(db));
 app.use("/api/favs", favsRoutes(db));
@@ -60,11 +58,7 @@ app.use("/login", loginRoute(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  templateVars = {
-    username: '',
-    email: ''
-  }
-  res.render("index", templateVars);
+
 });
 
 app.listen(PORT, () => {

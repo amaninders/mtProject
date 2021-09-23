@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- defauls from the started template -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+
+    <!-- fontawesome icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- polyfills -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <title>wikiMap</title>
+  </head>
+  <body>
+
+    <!-- header container -->
+    <div id="header__container" class="d-flex flex-column bd-highlight mb-3">
+
+      <!-- login -->
+      <div id="guest__form" class="bd-highlight d-flex-column justify-content-center">
+    	  <span class="text-center">
+    	    <a class="d-flex-column justify-content-center text-center" href="/">
+    	      <img src="/images/cover.png" width="100%" alt="wikiMap">
+    	    </a>
+    	  </span>
+      	<hr>
+    	  <div class="card">
+    	    <div class="card-body">
+    	      <form id="login__form">
+    	        <div class="form-group">
+    	          <label for="exampleInputEmail">Email address</label>
+    	          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    	        </div>
+    	        <div class="form-group">
+    	          <label for="exampleInputPassword">Password</label>
+    	          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    	        </div>
+    	        <button type="submit" class="btn btn-success btn-lg btn-block">Login</button>
+    	      </form>
+    	    </div>
+    	  </div>
+      	<hr>
+    	</div>
+
+      <div id="user__options" class="d-flex-column justify-content-center">
+
+        <!-- greeting -->
+        <div class="bd-highlight d-flex-column justify-content-center">
+      	  <span class="text-center">
+      	    <a class="d-flex-column justify-content-center text-center" href="/">
+      	      <img src="/images/cover.png" width="100%" alt="wikiMap">
+      	    </a>
+      	  </span>
+        	<hr>
+      	  <div id="greeting__container" class="card text-center">
+            <div class="card-body">
+              👋 Welcome
+            </div>
+          </div>
+        	<hr>
+      	</div>
+
+        <div class="accordion" id="accordionExample">
+
+          <!-- create map -->
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#newMap" aria-expanded="true" aria-controls="newMap">
+                  Create Map
+                </button>
+              </h2>
+            </div>
+
+            <div id="newMap" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body text-center">
+                <button class="btn btn-lg btn-block btn-outline-success my-2 my-sm-2 custom-map-control-button text" type="button" id="panButton">Pan to current location</button>
+                <h5>OR</h5>
+                <form class="form d-flex-column" id="searchLocation">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search location" aria-label="location" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="submit">Search</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h2 class="mb-0">
+                <button class="btn btn-dark btn-lg btn-block collapsed" type="button" data-toggle="collapse" data-target="#existingMaps" aria-expanded="false" aria-controls="existingMaps">
+                  Your Maps
+                </button>
+              </h2>
+            </div>
+            <div id="existingMaps" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="list-group">
+                  <div class="btn-group" role="group" aria-label="existing-maps">
+                    <!-- gets a list of existing maps from app.js -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h2 class="mb-0">
+                <button class="btn btn-dark btn-lg btn-block collapsed" type="button" data-toggle="collapse" data-target="#favoriteMaps" aria-expanded="false" aria-controls="favoriteMaps">
+                  Favourites
+                </button>
+              </h2>
+            </div>
+            <div id="favoriteMaps" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="list-group">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-light"><a href="#" class="list-group-item list-group-item-action">map name</a></button>
+                    <button type="button" class="btn btn-light"><i class="far fa-edit"></i></button>
+                    <button type="button" class="btn btn-light"><i class="far fa-thumbs-up"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h2 class="mb-0">
+                <button class="btn btn-dark btn-lg btn-block collapsed" type="button" data-toggle="collapse" data-target="#currentMap" aria-expanded="false" aria-controls="currentMap">
+                  current map
+                </button>
+              </h2>
+            </div>
+            <div id="currentMap" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="list-group">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-light"><a href="#" class="list-group-item list-group-item-action">marker name</a></button>
+                    <button type="button" class="btn btn-light"><i class="far fa-edit"></i></button>
+                    <button type="button" class="btn btn-light"><i class="far fa-thumbs-up"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- help icons -->
+      <div class="mt-auto p-2 bd-highlight">
+        <div class="btn-group d-flex justify-content-around">
+          <a class="btn btn-outline-dark" href="#" role="button"><i class="fas fa-info"></i></a>
+          <a class="btn btn-outline-dark" href="#" role="button"><i class="fas fa-code"></i></i></a>
+          <a class="btn btn-outline-dark" href="#" role="button"><i class="fas fa-question"></i></a>
+        </div>
+        <div class="d-flex-column text-center">
+          <br>
+          <p id="companyInfo">© wikiMap inc.<br>2021</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- map container -->
+    <main style="flex: 6; background-color: antiquewhite;">
+      <div id="map"></div>
+    </main>
+
+
+    <!-- additional scripts to follow -->
+    <!-- custom jQuery min version -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- popper js used by bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <!-- bootstrap script -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- googlemaps script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=places&v=weekly&channel=2" async></script>
+
+    <!-- used to render header content with jQuery -->
+    <script type="text/javascript" src="/scripts/elements.js"></script>
+    <!-- used for app actions and control -->
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <!-- used for map actions and control -->
+    <script type="text/javascript" src="/scripts/map.js" ></script>
+
+  </body>
+</html>
+
+
+
