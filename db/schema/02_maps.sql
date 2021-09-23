@@ -6,7 +6,7 @@ CREATE TABLE "maps" (
   "longitude" REAL,
   "latitude" REAL,
   "zoom_level" INT DEFAULT '8',
-  "location_key" TEXT DEFAULT NULL,
+  "notes" TEXT DEFAULT NULL,
   "is_deleted" BOOLEAN DEFAULT FALSE,
   "is_public" BOOLEAN DEFAULT FALSE,
   PRIMARY KEY ("id"),

@@ -19,12 +19,12 @@ module.exports = (db) => {
     })
     .post("/", (req, res) => {
       console.log(req.body)
-      const {name, longitude, latitude} = req.body;
+      const {name, longitude, latitude, zoom_level} = req.body;
       db.query(`
-      INSERT INTO maps (user_id, name, longitude, latitude)
-      VALUES ($1, $2, $3, $4)
+      INSERT INTO maps (user_id, name, longitude, latitude, zoom_level)
+      VALUES ($1, $2, $3, $4, $5)
       RETURNING *
-      `, [`${req.session.user.user_id}`, `${name}`, `${longitude}`, `${latitude}`])
+      `, [`${req.session.user.user_id}`, `${name}`, `${longitude}`, `${latitude}`, `${zoom_level}`])
         .then(data => res.json(data.rows[0]))
         .catch(err => {
           res

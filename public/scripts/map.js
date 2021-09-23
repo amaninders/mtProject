@@ -15,7 +15,7 @@ const mapForm = (obj) => {
 			  </div>
         <div class="form-group">
           <label for="mapName">Name</label>
-          <input type="text" name="name" class="form-control" id="mapName">
+          <input type="text" name="name" class="form-control" id="mapName" required>
         </div>
 		  	<button type="submit" class="btn btn-dark">Create map</button>
 			</fieldset>

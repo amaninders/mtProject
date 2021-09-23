@@ -9,7 +9,7 @@ const mapListItem = (obj, listType) => {
 
   const rowHTML = `
     <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-light" id="map__name"><a href="#" class="list-group-item list-group-item-action">${obj.name}</a></button>`
+      <button type="button" class="btn btn-light map__name"><a href="/api/maps/${obj.id}" class="list-group-item list-group-item-action">${obj.name}</a></button>`
       + (listType === 'existing' ? `<button type="button" class="btn btn-light"><i class="fas fa-minus-circle"></i></button>` : '') +
 
       `<button type="button" class="btn btn-light"><i class="far fa-edit"></i></button>
@@ -72,28 +72,37 @@ $('#login__form').submit(e => {
   })
 })
 
-
 // form listener
-
 $("body").on('submit', event => {
   event.preventDefault();
   switch (event.target.id) {
+    // proceed to map js and render the new map form
     case 'searchLocation':
-      $(this).off('submit').submit();
+      $form = $(`#${event.target.id}`);
+      $form.off('submit').submit();
       break;
+    // load current map after it's created
     case 'addMap':
-      const $form = $(`#${event.target.id}`);
-      lat = $form.find( "input[name='latitude']" ).val()
-      lng = $form.find( "input[name='longitude']" ).val(),
-      mapName = $form.find( "input[name='name']" ).val(),
-      $.post('/api/maps', { latitude: `${lat}`, longitude: `${lng}`, name: `${mapName}` })
-        .done(data => console.log(data));
+      $form = $(`#${event.target.id}`);
+      $postData = $form.serialize();
+      $postData += `&zoom_level=${map.getZoom()}`;
+      $.post('/api/maps', $postData, (result) => {
+        $('#user__options').hide();
+        $('#currentMap__container').empty();
+        $('#currentMap__container').append(currentMap(result));
+        $('#currentMap').addClass('show');
+        // Initialize and add the map ##### to-be-continued #####
+      })
       break;
-
     default:
       break;
   }
 });
+
+$('body > button.map__name > a').on('click', event => {
+  event.preventDefault();
+  console.log('okay');
+})
 
 // do this on page ready
 

@@ -36,24 +36,29 @@
     <!-- header container -->
     <div id="header__container" class="d-flex flex-column bd-highlight mb-3">
 
+      <!-- branding -->
+      <div class="bd-highlight d-flex-column justify-content-center">
+        <span class="text-center">
+          <a class="d-flex-column justify-content-center text-center" href="/">
+            <img src="/images/cover.png" width="100%" alt="wikiMap">
+          </a>
+        </span>
+        <hr>
+      </div>
+
+
       <!-- login -->
       <div id="guest__form" class="bd-highlight d-flex-column justify-content-center">
-    	  <span class="text-center">
-    	    <a class="d-flex-column justify-content-center text-center" href="/">
-    	      <img src="/images/cover.png" width="100%" alt="wikiMap">
-    	    </a>
-    	  </span>
-      	<hr>
     	  <div class="card">
     	    <div class="card-body">
     	      <form id="login__form">
     	        <div class="form-group">
     	          <label for="exampleInputEmail">Email address</label>
-    	          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    	          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="darkforce@work.com">
     	        </div>
     	        <div class="form-group">
     	          <label for="exampleInputPassword">Password</label>
-    	          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    	          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="darkSecret">
     	        </div>
     	        <button type="submit" class="btn btn-success btn-lg btn-block">Login</button>
     	      </form>
@@ -66,15 +71,9 @@
 
         <!-- greeting -->
         <div class="bd-highlight d-flex-column justify-content-center">
-      	  <span class="text-center">
-      	    <a class="d-flex-column justify-content-center text-center" href="/">
-      	      <img src="/images/cover.png" width="100%" alt="wikiMap">
-      	    </a>
-      	  </span>
-        	<hr>
       	  <div id="greeting__container" class="card text-center">
             <div class="card-body">
-              👋 Welcome
+              👋 Welcome DarkForce
             </div>
           </div>
         	<hr>
@@ -98,7 +97,7 @@
                 <h5>OR</h5>
                 <form class="form d-flex-column" id="searchLocation">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search location" aria-label="location" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Search location" aria-label="location" aria-describedby="basic-addon2" required>
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary" type="submit">Search</button>
                     </div>
@@ -147,29 +146,12 @@
               </div>
             </div>
           </div>
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h2 class="mb-0">
-                <button class="btn btn-dark btn-lg btn-block collapsed" type="button" data-toggle="collapse" data-target="#currentMap" aria-expanded="false" aria-controls="currentMap">
-                  current map
-                </button>
-              </h2>
-            </div>
-            <div id="currentMap" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-              <div class="card-body">
-                <div class="list-group">
-                  <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-light"><a href="#" class="list-group-item list-group-item-action">marker name</a></button>
-                    <button type="button" class="btn btn-light"><i class="far fa-edit"></i></button>
-                    <button type="button" class="btn btn-light"><i class="far fa-thumbs-up"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
+      <div id="currentMap__container" class="bd-highlight d-flex-column justify-content-center">
+
+    	</div>
 
       <!-- help icons -->
       <div class="mt-auto p-2 bd-highlight">
@@ -211,6 +193,8 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
     <!-- used for map actions and control -->
     <script type="text/javascript" src="/scripts/map.js" ></script>
+    <!-- used for current map actions and control -->
+    <script type="text/javascript" src="/scripts/currentMap.js" ></script>
 
   </body>
 </html>
