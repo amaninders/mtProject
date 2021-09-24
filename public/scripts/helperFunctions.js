@@ -38,7 +38,7 @@ const placeListItem = (obj) => {
     <div class="btn-group" role="group">
       <button type="button" class="btn btn-light map--name list-group-item list-group-item-action">${obj.name}</button>
       <div class="btn-group" role="group">
-        <button type="button" class="btn btn-light" onclick="openPlace(${obj.id})"><i class="fas fa-wrench"></i></button>
+      <!-- <button type="button" class="btn btn-light" onclick="editPlace(${obj.id})"><i class="fas fa-wrench"></i></button> -->
         <button type="button" class="btn btn-light" onclick="delPlace(${obj.id})"><i class="fas fa-minus-circle"></i></button>
       </div>
     </div>`;
