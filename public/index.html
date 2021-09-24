@@ -29,6 +29,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
+    <!-- handle passive event listeners -->
+    <script type="text/javascript" src="https://unpkg.com/default-passive-events@2.0.0/dist/index.umd.js"></script>
+
     <title>wikiMap</title>
   </head>
   <body>
@@ -54,11 +57,11 @@
     	      <form id="login__form">
     	        <div class="form-group">
     	          <label for="exampleInputEmail">Email address</label>
-    	          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="darkforce@work.com">
+    	          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="darkforce@work.com" autocomplete="on">
     	        </div>
     	        <div class="form-group">
     	          <label for="exampleInputPassword">Password</label>
-    	          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="darkSecret">
+    	          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="darkSecret" autocomplete="off">
     	        </div>
     	        <button type="submit" class="btn btn-success btn-lg btn-block">Login</button>
     	      </form>
@@ -97,7 +100,7 @@
                 <h5>OR</h5>
                 <form class="form d-flex-column" id="searchLocation">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search location" aria-label="location" aria-describedby="basic-addon2" required>
+                    <input type="text" class="form-control" placeholder="Search location" aria-label="location" aria-describedby="basic-addon2" autocomplete="on" required>
                     <div class="input-group-append">
                       <button class="btn btn-outline-secondary" type="submit">Search</button>
                     </div>
@@ -155,6 +158,10 @@
 
       <!-- help icons -->
       <div class="mt-auto p-2 bd-highlight">
+        <button class="btn btn-dark btn-lg btn-block" type="button" id="take__me__home" onclick="resetMapSession()">
+          Back to Home Page
+        </button>
+        <hr>
         <div class="btn-group d-flex justify-content-around">
           <a class="btn btn-outline-dark" href="#" role="button"><i class="fas fa-info"></i></a>
           <a class="btn btn-outline-dark" href="#" role="button"><i class="fas fa-code"></i></i></a>
@@ -173,7 +180,6 @@
       <div id="map"></div>
     </main>
 
-
     <!-- additional scripts to follow -->
     <!-- custom jQuery min version -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -187,14 +193,20 @@
     <!-- googlemaps script -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=places&v=weekly&channel=2" async></script>
 
-    <!-- used to render header content with jQuery -->
-    <script type="text/javascript" src="/scripts/elements.js"></script>
+
+    <!-- used for map actions and control -->
+    <script type="text/javascript" src="/scripts/map.js"></script>
+
+    <!-- provides all the helper functions needed in the app.js -->
+    <script type="text/javascript" src="/scripts/helperFunctions.js"></script>
+
     <!-- used for app actions and control -->
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <!-- used for map actions and control -->
-    <script type="text/javascript" src="/scripts/map.js" ></script>
-    <!-- used for current map actions and control -->
-    <script type="text/javascript" src="/scripts/currentMap.js" ></script>
+
+    <!-- used to generate current map form in the header-->
+    <script type="text/javascript" src="/scripts/elements.js"></script>
+
+
 
   </body>
 </html>

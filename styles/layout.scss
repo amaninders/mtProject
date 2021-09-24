@@ -33,6 +33,10 @@ body {
   }
 
 
+  #places__container {
+    max-height: 420px;
+    overflow-y: scroll;
+  }
 
   .main-container{
   display: flex;
@@ -68,9 +72,19 @@ body {
     }
   }
 
-  .map__name {
+  .map--name {
     min-width: 60%;
   }
+
+  .place--name {
+    min-width: 60%;
+  }
+
+  #take__me__home {
+    display: none;
+  }
+
+
 }
 
 

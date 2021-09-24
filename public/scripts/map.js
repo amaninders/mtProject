@@ -76,10 +76,11 @@ function initMap() {
           const searchResult = results[0].geometry.location; // we handpick the first item from results
           const pos = searchResult.toJSON(); //fetch the coordinates
           map.setCenter(searchResult); //set the map center
-          infoWindow.setContent(mapForm(pos));
-          infoWindow.setPosition(pos);
           infoWindow.open(map);
+          infoWindow.setPosition(pos);
+          infoWindow.setContent(mapForm(pos));
           map.setCenter(pos);
+
         }
       });
     } else {

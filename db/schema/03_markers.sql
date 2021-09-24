@@ -3,6 +3,7 @@ CREATE TABLE "markers" (
   "id" SERIAL NOT NULL,
   "user_id" INT REFERENCES users(id) ON DELETE CASCADE,
   "map_id" INT REFERENCES maps(id) ON DELETE CASCADE,
+  "name" VARCHAR(255) NOT NULL,
   "longitude" REAL,
   "latitude" REAL,
   "image" TEXT DEFAULT '/images/cover.png',
